@@ -1,5 +1,6 @@
 # OverlayFS Safe Auto Update
 [![Shell CI](https://github.com/Tetsuya1126/raspi_overlay-auto-update/actions/workflows/shellcheck.yml/badge.svg)](https://github.com/Tetsuya1126/raspi_overlay-auto-update/actions/workflows/shellcheck.yml)
+Safe automatic system update framework for Raspberry Pi using OverlayFS.
 
 Raspberry Pi / Debian 用  
 OverlayFS 環境に対応した **安全な自動 apt 更新スクリプト**。
