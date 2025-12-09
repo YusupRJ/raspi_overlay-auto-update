@@ -24,18 +24,20 @@ OverlayFS 環境に対応した **安全な自動 apt 更新スクリプト**。
 ---
 
 ## Install
+```bash
 git clone https://github.com/Tetsuya1126/raspi_overlay-auto-update.git
-
 cd raspi_overlay-auto-update
-
 sudo bash install.sh
+```
 
 ---
 
 ## Dry Run
 動作確認モード:
 
+```bash
 sudo overlay-auto-update.sh --dry-run
+```
 
 実際のシステム変更・overlay切替・reboot は行われません。
 そのため、overlayの状態により実際の動作が異なります。
@@ -44,8 +46,9 @@ sudo overlay-auto-update.sh --dry-run
 
 ## Configuration
 実行スケジュールは以下で変更可能：
-
+```bash
 sudo nano /etc/systemd/system/overlay-auto-update.timer
+```
 
 ---
 
@@ -98,10 +101,10 @@ ACT LED 緑LED　
 
 Enable watchdog
 1. モジュールロード
-
+```bash
 sudo modprobe bcm2835_wdt
-
 echo bcm2835_wdt | sudo tee /etc/modules-load.d/watchdog.conf
+```
 
 2. systemd 有効化
 
@@ -111,17 +114,21 @@ RuntimeWatchdogSec=15
 
 ShutdownWatchdogSec=15
 
+```bash
 sudo systemctl daemon-reexec
+```
 
 3. watchdogd 無効化
 
+```bash
 sudo systemctl disable watchdog
-
 sudo systemctl stop watchdog
+```
 
 4. Verify
-
+```bash
 systemctl show | grep Watchdog
+```
 
 確認項目：
 
